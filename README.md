@@ -2,6 +2,10 @@
 
 > a multiplayer snakepong game
 
+
+# Originally created by @wongmjane in her repo at https://github.com/wongmjane/snake-pong
+# Two player feature added by @mrclan(that's me :D)
+
 ## Build Setup
 
 ``` bash
