@@ -2,9 +2,9 @@
   <div>
     <p>{{msg}}</p>
     <canvas ref="cnvs"></canvas>
-  
-    <snake :keys="keyMaps.keySet1" name="Snake1" color="red" :ctx="ctx" ref="snake1"></snake>
-    <snake :keys="keyMaps.keySet2" name="Snake2" color="blue" :ctx="ctx" ref="snake2"></snake>
+    <snake v-for="p in players" :key="p.name" :keys="p.controls" :name="p.name" :color="p.color" :ctx="ctx" ref="snakes"></snake>
+    <!-- <snake :keys="keyMaps.keySet1" name="Snake1" color="red" :ctx="ctx" ref="snake1"></snake>
+    <snake :keys="keyMaps.keySet2" name="Snake2" color="blue" :ctx="ctx" ref="snake2"></snake> -->
   </div>
 </template>
 
@@ -27,7 +27,11 @@ export default {
       ctx: undefined,
       timer: undefined,
       tickNum: 0,
-      foodMovement: { x: 1, y: 1 }
+      foodMovement: { x: 1, y: 1 },
+      players: [
+        {name: 'snake1', color: 'red', controls: KeyMaps.keySet1},
+        {name: 'snake2', color: 'blue', controls: KeyMaps.keySet2}
+      ]
     }
   },
   mounted: function () {
@@ -73,8 +77,10 @@ export default {
       this.ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
       this.ctx.fillRect(0, 0, this.$refs.cnvs.width, this.$refs.cnvs.height);
       this.drawFood();
-      this.$refs.snake1.move();
-      this.$refs.snake2.move();
+      for(let i=0;i<this.$refs.snakes.length;i++){
+        this.$refs.snakes[i].move();
+      }
+      //this.$refs.snake2[0].move();
       this.tickNum++;
 
 

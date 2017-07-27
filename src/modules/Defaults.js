@@ -1,7 +1,7 @@
 const defaultSettings = {
   gridScale: 10,
-  gridWidth: 150,
-  gridHeight: 75,
+  gridWidth: 100,
+  gridHeight: 45,
   tickSpeed: 50
 };
 

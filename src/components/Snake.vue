@@ -80,7 +80,6 @@ export default {
         this.score++;
       }
 
-
       this.ctx.fillStyle = this.color;
       for (i = 0; i < this.snakeBody.length; i++) {
         this.ctx.fillRect(defaults.gridScale * this.snakeBody[i].x, defaults.gridScale * this.snakeBody[i].y, defaults.gridScale, defaults.gridScale);
